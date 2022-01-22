@@ -15,11 +15,11 @@ The api specifications can be found on the [wiki page](https://kodi.wiki/view/JS
 
 ```text mdox-exec="python3 khr.py -h"
 usage: khr.py [-h] [-u URL]
-              [{decrement_volume,increment_volume,mute,next_audiostream,playpause}]
+              [{decrement_volume,get_item,increment_volume,mute,next_audiostream,playpause}]
 
 positional arguments:
-  {decrement_volume,increment_volume,mute,next_audiostream,playpause}
-                        kodi action to take (default: None)
+  {decrement_volume,get_item,increment_volume,mute,next_audiostream,playpause}
+                        kodi action to take (default: get_item)
 
 optional arguments:
   -h, --help            show this help message and exit
