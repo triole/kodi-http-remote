@@ -9,6 +9,7 @@ import requests
 class KodiHttpRemote():
     def __init__(self, url):
         self.url = url + '/jsonrpc'
+        self.playerid = self.get_player_id()
 
     def send_post(self, data):
         res = requests.post(
@@ -19,13 +20,20 @@ class KodiHttpRemote():
         print(res)
         print(res.text)
 
-    def base_req(self, method, params):
+    def base_req(self, method, params=None):
         r = {}
         r['id'] = 1
         r['jsonrpc'] = '2.0'
         r['method'] = method
-        r['params'] = params
+        if params is not None:
+            r['params'] = params
         return r
+
+    def get_player_id(self):
+        r = self.base_req(
+            'Player.GetPlayers'
+        )
+        return r['id']
 
     def k_increment_volume(self):
         return self.base_req(
@@ -44,7 +52,13 @@ class KodiHttpRemote():
 
     def k_playpause(self):
         return self.base_req(
-            'Player.PlayPause', {'playerid': 1}
+            'Player.PlayPause', {'playerid': self.playerid}
+        )
+
+    def k_next_audiostream(self):
+        return self.base_req(
+            'Player.SetAudioStream',
+            {'playerid': self.playerid, 'stream': 'next'}
         )
 
 
