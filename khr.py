@@ -63,4 +63,8 @@ if __name__ == '__main__':
 
     khr = KodiHttpRemote(args.url)
     payload = getattr(khr, args.arg)()
-    khr.send_post(payload)
+    payload_arr = payload
+    if isinstance(payload, list) is False:
+        payload_arr = [payload]
+    for pl in payload_arr:
+        khr.send_post(pl)

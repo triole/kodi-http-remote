@@ -58,3 +58,9 @@ class Endpoints():
         return self._req(
             'VideoLibrary.Scan'
         )
+
+    def update_lib(self):
+        return [
+            self.clean_lib(),
+            self.scan_lib()
+        ]
