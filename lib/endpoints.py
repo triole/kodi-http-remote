@@ -1,8 +1,4 @@
 class Endpoints():
-    def __init__(self):
-        self.playerid = None
-        self.url = None
-
     def _req(self, method, params=None):
         r = {}
         r['url'] = self.url

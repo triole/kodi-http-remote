@@ -8,15 +8,13 @@ import requests
 from lib.endpoints import Endpoints
 
 
-class KodiHttpRemote():
+class KodiHttpRemote(Endpoints):
     def __init__(self, url):
         self.url = url + '/jsonrpc'
-        self.ep = Endpoints()
-        self.ep.url = self.url
-        self.ep.playerid = self.get_player_id()
+        self.playerid = self.get_player_id()
 
     def get_player_id(self):
-        req = self.ep._req(
+        req = self._req(
             'Player.GetPlayers'
         )
         res = self.send_post(req)
@@ -64,5 +62,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     khr = KodiHttpRemote(args.url)
-    payload = getattr(khr.ep, args.arg)()
+    payload = getattr(khr, args.arg)()
     khr.send_post(payload)
