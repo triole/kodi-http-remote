@@ -48,3 +48,13 @@ class Endpoints():
             'Player.SetAudioStream',
             {'playerid': self.playerid, 'stream': 'next'}
         )
+
+    def clean_lib(self):
+        return self._req(
+            'VideoLibrary.Clean'
+        )
+
+    def scan_lib(self):
+        return self._req(
+            'VideoLibrary.Scan'
+        )
