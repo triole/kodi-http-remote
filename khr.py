@@ -57,7 +57,7 @@ if __name__ == '__main__':
         help='kodi action to take'
     )
     parser.add_argument(
-        '-u', '--url', default='http://192.168.0.7:8080',
+        '-u', '--url', default='http://192.168.0.5:8080',
         help='kodi\'s url')
     args = parser.parse_args()
 
