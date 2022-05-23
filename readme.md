@@ -15,13 +15,13 @@ The api specifications can be found on the [wiki page](https://kodi.wiki/view/JS
 
 ```text mdox-exec="python3 khr.py -h"
 usage: khr.py [-h] [-u URL]
-              [{decrement_volume,get_item,increment_volume,mute,next_audiostream,playpause}]
+              [{clean_lib,decrement_volume,get_item,increment_volume,mute,next_audiostream,playpause,scan_lib,update_lib}]
 
 positional arguments:
-  {decrement_volume,get_item,increment_volume,mute,next_audiostream,playpause}
+  {clean_lib,decrement_volume,get_item,increment_volume,mute,next_audiostream,playpause,scan_lib,update_lib}
                         kodi action to take (default: get_item)
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
-  -u URL, --url URL     kodi's url (default: http://192.168.0.13:8080)
+  -u URL, --url URL     kodi's url (default: http://telly.box:8080)
 ```
